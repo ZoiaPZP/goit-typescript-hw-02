@@ -7,6 +7,9 @@ export interface UnsplashImage {
   alt_description: string | null;
   user: {
     name: string;
+    links: {
+      html: string;
+    };
   };
   likes: number;
   description: string | null;
@@ -18,6 +21,7 @@ export interface GalleryImage {
   largeImageURL: string;
   tags: string;
   user: string;
+  userUrl: string;
   likes: number;
   description: string;
 }
@@ -28,6 +32,7 @@ export interface ModalImage {
   largeImageURL: string;
   tags: string;
   user: string;
+  userUrl: string;
   likes: number;
   description: string;
 }
@@ -38,6 +43,7 @@ export interface ImageData {
   largeImageURL: string;
   tags: string;
   user: string;
+  userUrl: string;
   likes: number;
   description?: string;
 }
