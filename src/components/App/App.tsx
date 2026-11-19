@@ -7,6 +7,7 @@ import { Loader } from '../Loader/Loader';
 import Notiflix from 'notiflix';
 import { ImageModal } from '../ImageModal/ImageModal';
 import { Toaster } from 'react-hot-toast';
+import styles from './App.module.css';
 import { ModalImage, GalleryImage } from '../../types/types';
 
 const perPage = 12;
@@ -58,6 +59,7 @@ export default function App() {
           largeImageURL: urls.regular,
           tags: alt_description || 'photo',
           user: user.name || 'Unknown',
+          userUrl: `${user.links.html}?utm_source=zoia_image_search&utm_medium=referral`,
           likes,
           description: description || 'No description available',
         })
@@ -117,6 +119,7 @@ export default function App() {
         largeImageURL: image.largeImageURL,
         tags: image.tags || 'photo',
         user: image.user,
+        userUrl: image.userUrl,
         likes: image.likes,
         description: image.description,
       },
@@ -140,6 +143,12 @@ export default function App() {
       {modal.isShowModal && (
         <ImageModal modalImage={modal.modalImage} onCloseModal={onCloseModal} />
       )}
+      <footer className={styles.footer}>
+        Educational project · Photos from{' '}
+        <a href='https://unsplash.com/?utm_source=zoia_image_search&utm_medium=referral' target='_blank' rel='noopener noreferrer'>
+          Unsplash
+        </a>
+      </footer>
       <Toaster />
     </>
   );
